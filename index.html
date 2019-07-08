@@ -4,6 +4,372 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<!--첫 커밋 완료!-->
+	<!--Git 첫 커밋 완료!-->
+
+<div class="github_explan">
+
+<!--ls는 현재위치에 있는 것들을 볼 수 있는 명령어-->
+bagchanmiui-MBP:~ parkchanmi$ ls
+APFS 물리적 저장소 Feb-14 12_47.ddscan
+Applications
+Creative Cloud Files
+Desktop
+Documents
+Downloads
+Library
+Movies
+Music
+Pictures
+Public
+form2.php
+github
+iCloud Drive(아카이브)
+iCloud Drive(아카이브) - 1
+iCloud Drive(아카이브) - 2
+<!--cd는 ~로 들어가라. 즉 cd Desktop은 Desktop으로 들어가라. 왜냐하면 Git 폴더를 바탕화면(Desktop)에 만들어놓았기때문이다.-->
+bagchanmiui-MBP:~ parkchanmi$ cd Desktop
+<!--현재위치에 어떤게 있는지 체크-->
+bagchanmiui-MBP:Desktop parkchanmi$ ls
+Git
+PCM
+html.html
+test20190527
+test20190531
+이디야 알바 레시피.pdf
+점잖은 원숭이들 - 헷갈리는거 알아 앨범 커버사진.png
+스크린샷 2019-06-25 오전 2.26.08.png
+스크린샷 2019-06-25 오전 2.27.54.png
+휘핑크림케이스.png
+<!--Git폴더로 들어가라-->
+bagchanmiui-MBP:Desktop parkchanmi$ cd Git
+<!--현재(Git)폴더에 뭐있는지 확인. index.html파일이 있다.-->
+bagchanmiui-MBP:Git parkchanmi$ ls
+index.html
+<!--git init은 그냥 숨겨진 폴더를 하나 만든다고 생각하면 된다. 터미널을 다시 켰을때 git init부터 해야된다.-->
+bagchanmiui-MBP:Git parkchanmi$ git init
+xcode-select: note: no developer tools were found at '/Applications/Xcode.app', requesting install. Choose an option in the dialog to download the command line developer tools.
+<!--'cd ..'은 이전폴더로 가기-->
+bagchanmiui-MBP:Git parkchanmi$ cd ..
+bagchanmiui-MBP:Desktop parkchanmi$ cd Git
+bagchanmiui-MBP:Git parkchanmi$ git init
+Initialized empty Git repository in /Users/parkchanmi/Desktop/Git/.git/
+bagchanmiui-MBP:Git parkchanmi$ git ls
+git: 'ls' is not a git command. See 'git --help'.
+
+The most similar command is
+	log
+bagchanmiui-MBP:Git parkchanmi$ ls
+index.html
+<!--처음 git을 설치했을때는 로그인을 해야된다. 그럴때는 git config --global user.name "원하는 내 이름(?)"-->
+bagchanmiui-MBP:Git parkchanmi$ git config --global user.name "cm"
+<!--그 다음에는 git config --global user.email "github가입 이메일"-->
+bagchanmiui-MBP:Git parkchanmi$ git config --global user.email "cksal5188@naver.com"
+bagchanmiui-MBP:Git parkchanmi$ git init
+Reinitialized existing Git repository in /Users/parkchanmi/Desktop/Git/.git/
+<!--'git status'는 현재 상태-->
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	index.html      <!--이 부분이 빨간색으로 되어있을때는 뭔가 수정이 되어있는데 github에 안올라가져있는 상태를 의미한다.-->
+
+nothing added to commit but untracked files present (use "git add" to track)
+<!--'git add 원하는파일'은 안올라가진 파일을 올릴 준비를 한다고 생각하면 된다.-->
+bagchanmiui-MBP:Git parkchanmi$ git add index.html
+<!--'git status'를 사용하고 현재 상태를 주기적으로 확인하기.-->
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   index.html      <!--이 부분이 초록색으로 되어있을때는 index.html이 오라갈 준비가 되어진 것을 확인할 수 있다.-->
+
+<!--'git commit -m "commit명"은 github에 올라갈 commit명을 적어주는것. 첫글자는 무조건 대문자로 해야된다.-->
+bagchanmiui-MBP:Git parkchanmi$ git commit -m "First test"
+[master (root-commit) 89440b5] First test
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+nothing to commit, working tree clean
+bagchanmiui-MBP:Git parkchanmi$ git log
+commit 89440b51b1cdbf2f648d62538311470b242d1e50 (HEAD -> master)
+Author: cm <cksal5188@naver.com>
+Date:   Mon Jul 8 14:34:30 2019 +0900
+
+	First test
+<!--'git remote add origin github프로젝트주소'는 git init을 통해 만들었던 숨겨진 폴더와 내 github폴더를 연결하는 것-->
+bagchanmiui-MBP:Git parkchanmi$ git remote add origin https://github.com/web-best/GitTest.git
+<!--'git push origin master'는 최종적으로 파일을 올리는 것이다.-->
+bagchanmiui-MBP:Git parkchanmi$ git push origin master
+<!--로그인을 안했기 때문에 로그인을 해야된다.-->
+Username for 'https://github.com': cksal5188@naver.com  <!--github가입아이디-->
+Password for 'https://cksal5188@naver.com@github.com': <!--원래 ''이부분안에는 키 아이콘이 보여진다. 그러면 그냥 비밀번호 치면된다. 대신 비밀번호는 눈으로 안보인다.-->
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 207 bytes | 207.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/web-best/GitTest.git
+ * [new branch]      master -> master
+
+bagchanmiui-MBP:Git parkchanmi$ git log
+commit 89440b51b1cdbf2f648d62538311470b242d1e50 (HEAD -> master, origin/master)
+Author: cm <cksal5188@naver.com>
+Date:   Mon Jul 8 14:34:30 2019 +0900
+
+    First test
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+nothing to commit, working tree clean
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bagchanmiui-MBP:Git parkchanmi$ git diff
+diff --git a/index.html b/index.html
+index e69de29..bbcf1b6 100644
+--- a/index.html
++++ b/index.html
+@@ -0,0 +1,9 @@
++<!Doctype html>
++<html>
++<head>
++       
++</head>
++<body>
++       <!--첫 커밋 완료!-->
++</body>
++</html>
+\ No newline at end of file
+bagchanmiui-MBP:Git parkchanmi$ git add index.html
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   index.html
+
+bagchanmiui-MBP:Git parkchanmi$ git reset
+Unstaged changes after reset:
+M	index.html
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	common.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bagchanmiui-MBP:Git parkchanmi$ git add index.html
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	common.css
+
+bagchanmiui-MBP:Git parkchanmi$ git reset
+Unstaged changes after reset:
+M	index.html
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	common.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	common.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bagchanmiui-MBP:Git parkchanmi$ git add common.css
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   common.css
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   index.html
+
+bagchanmiui-MBP:Git parkchanmi$ git help
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout    Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Reapply commits on top of another base tip
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+bagchanmiui-MBP:Git parkchanmi$ git commit -m "First commit css"
+[master 161bb07] First commit css
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 common.css
+bagchanmiui-MBP:Git parkchanmi$ git push "First commit css"
+fatal: 'First commit css' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+bagchanmiui-MBP:Git parkchanmi$ git push origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 244 bytes | 244.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0)
+To https://github.com/web-best/GitTest.git
+   89440b5..161bb07  master -> master
+bagchanmiui-MBP:Git parkchanmi$ git log
+commit 161bb079b2f5a8f0b1c99e2ad52aeb1a0f47d8b1 (HEAD -> master, origin/master)
+Author: cm <cksal5188@naver.com>
+Date:   Mon Jul 8 15:00:42 2019 +0900
+
+    First commit css
+
+commit 89440b51b1cdbf2f648d62538311470b242d1e50
+Author: cm <cksal5188@naver.com>
+Date:   Mon Jul 8 14:34:30 2019 +0900
+
+    First test
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bagchanmiui-MBP:Git parkchanmi$ git add index.html
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   index.html
+
+bagchanmiui-MBP:Git parkchanmi$ git commit -m "Edit index html"
+[master d8c55b4] Edit index html
+ 1 file changed, 9 insertions(+)
+bagchanmiui-MBP:Git parkchanmi$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 345 bytes | 345.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/web-best/GitTest.git
+   161bb07..d8c55b4  master -> master
+bagchanmiui-MBP:Git parkchanmi$ git status
+On branch master
+nothing to commit, working tree clean
+bagchanmiui-MBP:Git parkchanmi$ git push origin master
+Everything up-to-date
+bagchanmiui-MBP:Git parkchanmi$ 
+<br>
+<br>
+<br>
+<br>
+</div>
+<div>
+	참조: <a href="https://www.zerocho.com/category/Git">https://www.zerocho.com/category/Git</a>
+</div>
 </body>
 </html>
